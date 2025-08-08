@@ -40,6 +40,7 @@ In this way, the output block of the Enriched Join operator doesn't contain any 
 <div align="center">
     <img src="../resources/enriched-join.png" alt="Enriched join illustration" width="80%">
 </div>
+
 *Figure 1: Enriched join planning and execution illustration*
 
 ### Benchmarking
