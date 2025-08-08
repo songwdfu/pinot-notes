@@ -33,8 +33,8 @@ specialize for common cases first, and trigger operator fusion during query plan
 ### Implementation
 
 The **Enriched Join** operator specializes for cases where we have **arbitrary combinations** of projections and filters plus an optional limit above
-a join (currently HashJoin only). The implementation is staight-forward: the operator uses a list to keep all fused-in filters and projections 
-operations in-order, then apply them sequentially over the input block on a per-row bases. If there is a limit fused in, it is applied at the end. 
+a join (currently HashJoin only). The implementation is staight-forward: To convert a chain of relations to an Enriched Join relation, a set of transformation rules matches bottom-up and incrementally merges Filters, Projects, and finally an optional Limit into the join. The relation is then converted to an Enriched Join operator that uses a list to keep all fused-in filters and projections 
+operations along with the projected schema in-order. During execution, the operator applies them sequentially over the input block on a per-row bases. If there is a limit fused in, it is applied at the end. 
 In this way, the output block of the Enriched Join operator doesn't contain any row to be discarded or any column to be projected away.
 
 <div align="center">
