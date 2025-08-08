@@ -37,7 +37,10 @@ a join (currently HashJoin only). The implementation is staight-forward: the ope
 operations in-order, then apply them sequentially over the input block on a per-row bases. If there is a limit fused in, it is applied at the end. 
 In this way, the output block of the Enriched Join operator doesn't contain any row to be discarded or any column to be projected away.
 
-![Enriched join illustration](../resources/enriched-join.png)
+<div align="center">
+    <img src="../resources/enriched-join.png" alt="Enriched join illustration" width="80%">
+</div>
+*Figure 1: Enriched join planning and execution illustration*
 
 ### Benchmarking
 
