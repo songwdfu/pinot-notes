@@ -32,8 +32,7 @@ Then, we perform merging of sorted segment results during server combine. There 
 First, when the number of segments is small, we simply do a **sequential merge** using the Producer-Consumer paradigm as in other server combine
 executions, where producer threads process the segments, and a single consumer thread merges the results. Although theoretically its time complexity is suboptimal
 compared to an N-way merge, this works well in practice due to the **streaming** fashion of merging. Without having to wait for all segments to be ready, 
-this allows earlier release of in-memory segment results that will otherwise build up to mem and GC pressure.
-Through benchmarking, we see this is efficient enough when the number of segments are below around `300`.
+this allows earlier release of in-memory segment results that will otherwise build up to mem and GC pressure. Another benefit is, when the number of segments `N` is smaller than the number of cores available for combine, we essentially have `N` producer and `1` consumer threads running in parallel, which is more efficient than other methods that only utilize `N` threads.
 
 Second, when the number of segments is large, we do a **parallel pair-wise merge** that utilizes multiple threads for the first rounds of merge. 
 In this case, each thread processes a segment, then either put the result into a pit or repeatedly pick up another result from the pit and 
