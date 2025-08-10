@@ -40,6 +40,11 @@ In this case, each thread processes a segment, then either put the result into a
 merge it with current. This approach does not ensure strict hierarchy of merging, rather merges results that are ready greedily. In practice, 
 this also benefit from early release of processed segment results as mentioned above, without having to wait for a result in the same level.
 
+<div align="center">
+    <img src="../resources/pair-wise-sorted-group-by.png" alt="Pair-wise sorted group-by combine algorithm" width="80%">
+    <p>Figure 1: Pair-wise sorted group-by combine algorithm</p>
+</div>
+
 Compared to previous execution using `ConcurrentHashMap`, the sort-aggregate approach never allow the combine result to grow above `LIMIT` rows, 
 and can terminate early without having to iterate through all rows for all segments. When the LIMIT is effective, 
 benchmarking shows ~**30x** speedup on combine phase compared to previous approach. 
@@ -82,6 +87,11 @@ the corresponding queue of that partition number (conceptually phase 1).
 - When merging, each task has a one-to-one correspondance with a partition number and hence a queue. 
 The task simply polls the blocks from the queue and merge them locally into a TwoLevelLinearProbingRecordMap (conceptually phase 2).
 - When all tasks are done, the thread-local maps are stitched and returned.
+
+<div align="center">
+    <img src="../resources/partitioned-group-by.png" alt="Partitioned parallel group-by combine algorithm" width="80%">
+    <p>Figure 2: Partitioned parallel group-by combine algorithm</p>
+</div>
 
 The major benefit of this is that segments are merged timely, reducing required memory for holding on to the intermediate results as keys are merged. 
 A new restriction introduced by this version is, the number of tasks launched must equal the number of partitions used for one-to-one matching between
