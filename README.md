@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Apache Pinot project, originally developed at LinkedIn, is an open-source distributed real-time OLAP database system that is designed to provide ultra low-latency analytics at extremely high throughput, with an emphasis on data freshness. 
+The [Apache Pinot](https://github.com/apache/pinot) project, originally developed at LinkedIn, is an open-source distributed real-time OLAP database system that is designed to provide ultra low-latency analytics at extremely high throughput, with an emphasis on data freshness. 
 
 During summer 2025, my project at StarTree, Inc. focused on query engine optimizations for Apache Pinot. The project touched multiple components within the query engine. This repo serves as a summarization of most works I've done during the summer.
 
