@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The Apache Pinot project, originally developed at LinkedIn, is a distributed real-time OLAP database system that is designed to provide ultra low-latency analytics at extremely high throughput, with an emphasis on data freshness. 
+The Apache Pinot project, originally developed at LinkedIn, is an open-source distributed real-time OLAP database system that is designed to provide ultra low-latency analytics at extremely high throughput, with an emphasis on data freshness. 
 
 During summer 2025, my project at StarTree, Inc. focused on query engine optimizations for Apache Pinot. The project touched multiple components within the query engine. This repo serves as a summarization of most works I've done during the summer.
 
@@ -15,15 +15,19 @@ During summer 2025, my project at StarTree, Inc. focused on query engine optimiz
 - Identifying and hot-fixing system inefficiencies  
 
 **My major outcomes includes:**
-- Reducing query execution latency involving Group-By and Sort execution by more than 40%, respectively. Speeding up Group-By Combine component execution by over 30 times.
-- Reducing intermediate result size and reduce allocation by above 30% in Join, Sort, Group-By, and Dictionary-Encoded Scan execution.
-- Supporting run-time adjustment of query planner rules via query options. Introduce planner rule management conventions. Supplying additional heuristic rules for query optimization.
+- Reduced query execution latency in group-by execution by over 40% under multiple scenarios. Sped up sorted group-by Combine component execution by over 30 times.
+- Reduced intermediate result size and reduce allocation by above 30% in Join, Sort, Group-By, and Scan execution.
+- Supported run-time adjustment of query planner rules with knobs. Introduced planner rule management conventions. Supplied additional heuristic rules for query optimization.
 
-
-## Table of Content
+## Links to Contents
 
 - Single-Stage Query Engine Group-By Execution Enhancements [link](src/sse-groupby.md)
 
 - Multi-Stage Query Engine Join Execution Enhancements [link](src/mse-join.md)
 
 - Query Planner / Optimizer Enhancements [link](src/query-planner.md)
+
+## Acknowledgements
+
+I'd like to thank [Jackie Jiang](https://github.com/Jackie-Jiang), [Gonzalo Ortiz Jaureguizar](https://github.com/gortiz), [Bolek Ziobrowski](https://github.com/bziobrowski), [Yash Mayya](https://github.com/yashmayya), [Neha Pawar](https://github.com/npawar), and more wonderful people from [StarTree](https://github.com/startreedata) for their incredible help and support throughout the summer. I'm truely grateful❤️. 
+

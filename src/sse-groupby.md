@@ -105,6 +105,7 @@ When there is an effective LIMIT and there are no significant memory pressure, t
 and stop-the-world trimming on the `ConcurrentHashMap`. 
 
 However, there are two cases when the current implementation is inefficient:
+
 Firstly, when the LIMIT is comparatively large, during the partition-merge phase the new approach would have to keep `numPartitions` times larger intermediate result before 
 trimming after stitch to ensure correctness. This might incur larger memory pressure. The solution to this might be do earlier trimming, since partition-local trimming is cheap, 
 or simply apply a threshold on LIMIT to enable this path.
