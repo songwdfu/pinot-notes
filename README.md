@@ -15,8 +15,8 @@ During summer 2025, my project at [StarTree](https://github.com/startreedata), I
 - Identifying and hot-fixing system inefficiencies  
 
 **My major outcomes includes:**
-- Reduced query execution latency in group-by execution by over 40% under multiple scenarios. Sped up sorted group-by Combine component execution by over 30 times.
-- Reduced intermediate result size and reduce allocation by above 30% in Join, Sort, Group-By, and Scan execution.
+- Reduced query execution latency in group-by execution by over 40% under multiple scenarios. Sped up sorted group-by combine component execution by over 30 times.
+- Reduced intermediate result size and reduce allocation by above 30% in join, sort, group-by, and scan execution.
 - Supported run-time adjustment of query planner rules with knobs. Introduced planner rule management conventions. Supplied additional heuristic rules for query optimization.
 
 ## Links to Contents
