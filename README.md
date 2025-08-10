@@ -29,5 +29,5 @@ During summer 2025, my project at [StarTree](https://github.com/startreedata), I
 
 ## Acknowledgements
 
-I'd like to thank [Jackie Jiang](https://github.com/Jackie-Jiang), [Gonzalo Ortiz Jaureguizar](https://github.com/gortiz), [Bolek Ziobrowski](https://github.com/bziobrowski), [Yash Mayya](https://github.com/yashmayya), [Neha Pawar](https://github.com/npawar), and more wonderful people from [StarTree](https://github.com/startreedata) for their incredible help and support throughout the summer. I'm truely grateful❤️. 
+I'd like to thank [Jackie Jiang](https://github.com/Jackie-Jiang), [Gonzalo Ortiz Jaureguizar](https://github.com/gortiz), [Bolek Ziobrowski](https://github.com/bziobrowski), [Yash Mayya](https://github.com/yashmayya), [Neha Pawar](https://github.com/npawar), and more wonderful people from [StarTree](https://github.com/startreedata) for their incredible help and support throughout the summer. I'm truly grateful for it ❤️. 
 
