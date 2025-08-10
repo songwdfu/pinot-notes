@@ -8,7 +8,7 @@ Previously, there are spotted OOM errors due to very large intermediate result s
 The current solution is to keep up to `5 x LIMIT` number of rows per segment and per server (triggered by a threshold).
 However, this results in inaccurate results. We face a tradeoff btw used mem and result acc. For example, when segment a has 
 `[a, b, c]` and keeps `[a, b]`, while segment b has `[a, c, d]` and keeps `[a, c]`, we only get partially aggregated result for `c`. 
-For most cases, this is the only solution we could live with, without having to spill to disk.
+For most cases, this is the only solution we could live with without spill to disk.
 
 Another problem was, for `GROUP BY ... LIMIT ...` queries, i.e. when there is no `ORDER BY` clause in a group-by query, 
 the results are indeterministic. The previous fix attempted to use a `ConcurrentLinkedListMap` to apply ordering according to the 
