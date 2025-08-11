@@ -46,8 +46,8 @@ this also benefit from early release of processed segment results as mentioned a
 
 Compared to previous execution using `ConcurrentHashMap`, the sort-aggregate approach never allow the combine result to grow above `LIMIT` rows, 
 and can terminate early without having to iterate through all rows for all segments. When the LIMIT is effective, 
-benchmarking shows ~**30x** speedup on combine phase compared to previous approach. 
-The speedup could reach a level of **300x** when there are significant GC pressure due to large number of rows.
+benchmarking shows **>40%** speedup on query latency and ~*>30x** speedup on combine phase compared to previous approach when the combine is non-trivial. 
+The combine phase speedup could reach a level of **300x** when there are significant GC pressure due to large number of rows.
 
 A major drawback of sort-aggregation is, obviously, the time complexity of the sort operation. Also, the pair-wise merge approach may create more 
 intermediate data structures than a single `ConcurrentHashMap` as before. Therefore, we limit this execution path to cases when LIMIT is smaller 
